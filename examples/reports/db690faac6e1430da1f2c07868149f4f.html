@@ -1,0 +1,1031 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>B01 · FabScope report</title><style>
+body{background:#0c1420;color:#e7edf8;font:15px/1.6 system-ui;max-width:1200px;margin:40px auto;padding:0 24px}
+h1{font-size:30px} a{color:#70ddc5}small{color:#b3bfce}table{width:100%;border-collapse:collapse}td,th{padding:12px;border:1px solid #304157;text-align:left;vertical-align:top}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto;margin:0;font-size:12px}details{background:#162335;padding:16px;margin-top:20px}.notice{color:#edcb7b}</style>
+<p class="notice">MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH</p><h1>B01 — Mất phản hồi START rồi gửi lại</h1>
+<h2>PASS</h2><p>Phần mềm 0.1.0 · config demo-1 · seed 42</p>
+<small>Session: 46ebc03b8a2e4a49bcce2d44db4704c2<br>Config SHA256: 593e9e8347786af75ed0b7242298a40a61b7b77d2c8b89b7b8989d3335336e25</small>
+<p>Chỉ kiểm thử hành vi phần mềm theo cấu hình giả định. Không chứng nhận máy thật, vật lý khắc, SECS/GEM/EDA hoặc yêu cầu Viettel.</p><table><thead><tr><th>Điều kiện kiểm tra</th><th>Mong đợi</th><th>Thực tế</th><th>Kết quả</th></tr></thead><tbody><tr><td>Khách không nhận ack</td><td><pre>[
+  503,
+  &quot;ACK_LOST&quot;
+]</pre></td><td><pre>[
+  503,
+  &quot;ACK_LOST&quot;
+]</pre></td><td>PASS</td></tr><tr><td>START đã được ghi dù mất phản hồi</td><td><pre>[
+  1,
+  true
+]</pre></td><td><pre>[
+  1,
+  true
+]</pre></td><td>PASS</td></tr><tr><td>Retry nhận nguyên kết quả lưu</td><td><pre>{
+  &quot;accepted&quot;: true,
+  &quot;code&quot;: &quot;OK&quot;,
+  &quot;command_id&quot;: &quot;lost-start&quot;,
+  &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+  &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+  &quot;sim_time_s&quot;: 0.0
+}</pre></td><td><pre>{
+  &quot;accepted&quot;: true,
+  &quot;code&quot;: &quot;OK&quot;,
+  &quot;command_id&quot;: &quot;lost-start&quot;,
+  &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+  &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+  &quot;sim_time_s&quot;: 0.0
+}</pre></td><td>PASS</td></tr><tr><td>Retry không đổi journal hay run</td><td><pre>{
+  &quot;state&quot;: {
+    &quot;run_counter&quot;: 1,
+    &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+    &quot;sequence&quot;: 3,
+    &quot;signals&quot;: {
+      &quot;demo_process_level&quot;: 9.52,
+      &quot;step_progress_pct&quot;: 0
+    },
+    &quot;sim_time_s&quot;: 0.0,
+    &quot;state&quot;: &quot;PREPARING&quot;,
+    &quot;telemetry_at&quot;: 1.0,
+    &quot;transition_at&quot;: 3.0,
+    &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+    &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+    &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+    &quot;current_run&quot;: {
+      &quot;demo_level&quot;: 70,
+      &quot;ended_at&quot;: null,
+      &quot;prepare_s&quot;: 3,
+      &quot;process_s&quot;: 10,
+      &quot;reason&quot;: null,
+      &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+      &quot;recipe_version&quot;: &quot;1&quot;,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;started_at&quot;: 0.0,
+      &quot;status&quot;: &quot;RUNNING&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+  },
+  &quot;gateway&quot;: {
+    &quot;disconnected&quot;: false,
+    &quot;duplicate_delivery&quot;: false,
+    &quot;lost_ack_once&quot;: false,
+    &quot;playing&quot;: false
+  },
+  &quot;runs&quot;: [
+    {
+      &quot;demo_level&quot;: 70,
+      &quot;ended_at&quot;: null,
+      &quot;prepare_s&quot;: 3,
+      &quot;process_s&quot;: 10,
+      &quot;reason&quot;: null,
+      &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+      &quot;recipe_version&quot;: &quot;1&quot;,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;started_at&quot;: 0.0,
+      &quot;status&quot;: &quot;RUNNING&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    }
+  ],
+  &quot;events&quot;: [
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;state&quot;: &quot;LOADED&quot;
+      },
+      &quot;run_id&quot;: null,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 1,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;WaferLoaded&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;state&quot;: &quot;PREPARING&quot;
+      },
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 2,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;RunStarted&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;state&quot;: &quot;PREPARING&quot;
+      },
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;PreparationStarted&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    }
+  ],
+  &quot;commands&quot;: [
+    {
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;cmd-0001&quot;,
+      &quot;content&quot;: {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;parameters&quot;: {
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;type&quot;: &quot;LOAD&quot;
+      },
+      &quot;result&quot;: {
+        &quot;accepted&quot;: true,
+        &quot;code&quot;: &quot;OK&quot;,
+        &quot;command_id&quot;: &quot;cmd-0001&quot;,
+        &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+        &quot;run_id&quot;: null,
+        &quot;sim_time_s&quot;: 0.0
+      }
+    },
+    {
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;lost-start&quot;,
+      &quot;content&quot;: {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;parameters&quot;: {
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;
+        },
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;type&quot;: &quot;START&quot;
+      },
+      &quot;result&quot;: {
+        &quot;accepted&quot;: true,
+        &quot;code&quot;: &quot;OK&quot;,
+        &quot;command_id&quot;: &quot;lost-start&quot;,
+        &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;sim_time_s&quot;: 0.0
+      }
+    }
+  ]
+}</pre></td><td><pre>{
+  &quot;state&quot;: {
+    &quot;run_counter&quot;: 1,
+    &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+    &quot;sequence&quot;: 3,
+    &quot;signals&quot;: {
+      &quot;demo_process_level&quot;: 9.52,
+      &quot;step_progress_pct&quot;: 0
+    },
+    &quot;sim_time_s&quot;: 0.0,
+    &quot;state&quot;: &quot;PREPARING&quot;,
+    &quot;telemetry_at&quot;: 1.0,
+    &quot;transition_at&quot;: 3.0,
+    &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+    &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+    &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+    &quot;current_run&quot;: {
+      &quot;demo_level&quot;: 70,
+      &quot;ended_at&quot;: null,
+      &quot;prepare_s&quot;: 3,
+      &quot;process_s&quot;: 10,
+      &quot;reason&quot;: null,
+      &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+      &quot;recipe_version&quot;: &quot;1&quot;,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;started_at&quot;: 0.0,
+      &quot;status&quot;: &quot;RUNNING&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+  },
+  &quot;gateway&quot;: {
+    &quot;disconnected&quot;: false,
+    &quot;duplicate_delivery&quot;: false,
+    &quot;lost_ack_once&quot;: false,
+    &quot;playing&quot;: false
+  },
+  &quot;runs&quot;: [
+    {
+      &quot;demo_level&quot;: 70,
+      &quot;ended_at&quot;: null,
+      &quot;prepare_s&quot;: 3,
+      &quot;process_s&quot;: 10,
+      &quot;reason&quot;: null,
+      &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+      &quot;recipe_version&quot;: &quot;1&quot;,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;started_at&quot;: 0.0,
+      &quot;status&quot;: &quot;RUNNING&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    }
+  ],
+  &quot;events&quot;: [
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;state&quot;: &quot;LOADED&quot;
+      },
+      &quot;run_id&quot;: null,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 1,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;WaferLoaded&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;state&quot;: &quot;PREPARING&quot;
+      },
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 2,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;RunStarted&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    },
+    {
+      &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;payload&quot;: {
+        &quot;state&quot;: &quot;PREPARING&quot;
+      },
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;type&quot;: &quot;PreparationStarted&quot;,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+    }
+  ],
+  &quot;commands&quot;: [
+    {
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;cmd-0001&quot;,
+      &quot;content&quot;: {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;parameters&quot;: {
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;type&quot;: &quot;LOAD&quot;
+      },
+      &quot;result&quot;: {
+        &quot;accepted&quot;: true,
+        &quot;code&quot;: &quot;OK&quot;,
+        &quot;command_id&quot;: &quot;cmd-0001&quot;,
+        &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+        &quot;run_id&quot;: null,
+        &quot;sim_time_s&quot;: 0.0
+      }
+    },
+    {
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;lost-start&quot;,
+      &quot;content&quot;: {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;parameters&quot;: {
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;
+        },
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;type&quot;: &quot;START&quot;
+      },
+      &quot;result&quot;: {
+        &quot;accepted&quot;: true,
+        &quot;code&quot;: &quot;OK&quot;,
+        &quot;command_id&quot;: &quot;lost-start&quot;,
+        &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;sim_time_s&quot;: 0.0
+      }
+    }
+  ]
+}</pre></td><td>PASS</td></tr></tbody></table>
+<details><summary>Các bước HTTP và kết quả thực tế</summary><pre>[
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/sim/state&quot;,
+    &quot;request&quot;: null,
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;run_counter&quot;: 0,
+      &quot;run_id&quot;: null,
+      &quot;sequence&quot;: 0,
+      &quot;signals&quot;: {
+        &quot;demo_process_level&quot;: 0,
+        &quot;step_progress_pct&quot;: 0
+      },
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;state&quot;: &quot;EMPTY&quot;,
+      &quot;telemetry_at&quot;: null,
+      &quot;transition_at&quot;: null,
+      &quot;wafer_id&quot;: null,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+      &quot;current_run&quot;: null,
+      &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;,
+      &quot;gateway&quot;: {
+        &quot;disconnected&quot;: false,
+        &quot;duplicate_delivery&quot;: false,
+        &quot;lost_ack_once&quot;: false,
+        &quot;playing&quot;: false
+      },
+      &quot;config_hash&quot;: &quot;593e9e8347786af75ed0b7242298a40a61b7b77d2c8b89b7b8989d3335336e25&quot;,
+      &quot;config&quot;: {
+        &quot;config_version&quot;: &quot;demo-1&quot;,
+        &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;seed&quot;: 42,
+        &quot;telemetry_interval_s&quot;: 1,
+        &quot;recipes&quot;: [
+          {
+            &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;,
+            &quot;prepare_s&quot;: 3,
+            &quot;process_s&quot;: 10,
+            &quot;demo_level&quot;: 70
+          },
+          {
+            &quot;recipe_id&quot;: &quot;DEMO_B&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;,
+            &quot;prepare_s&quot;: 4,
+            &quot;process_s&quot;: 16,
+            &quot;demo_level&quot;: 45
+          }
+        ],
+        &quot;gateway_policy&quot;: {
+          &quot;disconnect_stops_process&quot;: false,
+          &quot;retain_all_events&quot;: true
+        },
+        &quot;assumptions&quot;: [
+          &quot;Một buồng, một wafer; thời lượng và tín hiệu chỉ phục vụ thử nghiệm phần mềm.&quot;,
+          &quot;Tắt dịch vụ thì đồng hồ dừng; mất kết nối gateway không dừng đồng hồ.&quot;,
+          &quot;Không mô phỏng vật lý khắc, không suy ra chất lượng wafer hoặc hành vi máy thật.&quot;
+        ]
+      }
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/equipment/commands&quot;,
+    &quot;request&quot;: {
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;cmd-0001&quot;,
+      &quot;type&quot;: &quot;LOAD&quot;,
+      &quot;parameters&quot;: {
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      }
+    },
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;command_id&quot;: &quot;cmd-0001&quot;,
+      &quot;accepted&quot;: true,
+      &quot;code&quot;: &quot;OK&quot;,
+      &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+      &quot;run_id&quot;: null,
+      &quot;sim_time_s&quot;: 0.0
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/sim/faults&quot;,
+    &quot;request&quot;: {
+      &quot;type&quot;: &quot;lost_ack_once&quot;,
+      &quot;enabled&quot;: true,
+      &quot;reason&quot;: &quot;Lỗi giả định để kiểm thử&quot;
+    },
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;accepted&quot;: true,
+      &quot;gateway&quot;: {
+        &quot;disconnected&quot;: false,
+        &quot;duplicate_delivery&quot;: false,
+        &quot;lost_ack_once&quot;: true,
+        &quot;playing&quot;: false
+      }
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/equipment/commands&quot;,
+    &quot;request&quot;: {
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;lost-start&quot;,
+      &quot;type&quot;: &quot;START&quot;,
+      &quot;parameters&quot;: {
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;
+      }
+    },
+    &quot;http_status&quot;: 503,
+    &quot;actual&quot;: {
+      &quot;code&quot;: &quot;ACK_LOST&quot;,
+      &quot;message&quot;: &quot;Phản hồi bị mất sau khi lưu kết quả. Gửi lại nguyên command ID.&quot;,
+      &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+    }
+  },
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/sim/evidence&quot;,
+    &quot;request&quot;: null,
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;state&quot;: {
+        &quot;run_counter&quot;: 1,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;sequence&quot;: 3,
+        &quot;signals&quot;: {
+          &quot;demo_process_level&quot;: 9.52,
+          &quot;step_progress_pct&quot;: 0
+        },
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;state&quot;: &quot;PREPARING&quot;,
+        &quot;telemetry_at&quot;: 1.0,
+        &quot;transition_at&quot;: 3.0,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+        &quot;current_run&quot;: {
+          &quot;demo_level&quot;: 70,
+          &quot;ended_at&quot;: null,
+          &quot;prepare_s&quot;: 3,
+          &quot;process_s&quot;: 10,
+          &quot;reason&quot;: null,
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;started_at&quot;: 0.0,
+          &quot;status&quot;: &quot;RUNNING&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+      },
+      &quot;gateway&quot;: {
+        &quot;disconnected&quot;: false,
+        &quot;duplicate_delivery&quot;: false,
+        &quot;lost_ack_once&quot;: false,
+        &quot;playing&quot;: false
+      },
+      &quot;runs&quot;: [
+        {
+          &quot;demo_level&quot;: 70,
+          &quot;ended_at&quot;: null,
+          &quot;prepare_s&quot;: 3,
+          &quot;process_s&quot;: 10,
+          &quot;reason&quot;: null,
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;started_at&quot;: 0.0,
+          &quot;status&quot;: &quot;RUNNING&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        }
+      ],
+      &quot;events&quot;: [
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;state&quot;: &quot;LOADED&quot;
+          },
+          &quot;run_id&quot;: null,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 1,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;WaferLoaded&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;,
+            &quot;state&quot;: &quot;PREPARING&quot;
+          },
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 2,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;RunStarted&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;state&quot;: &quot;PREPARING&quot;
+          },
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 3,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;PreparationStarted&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        }
+      ],
+      &quot;commands&quot;: [
+        {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;command_id&quot;: &quot;cmd-0001&quot;,
+          &quot;content&quot;: {
+            &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+            &quot;parameters&quot;: {
+              &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+            },
+            &quot;schema_version&quot;: &quot;1.0&quot;,
+            &quot;type&quot;: &quot;LOAD&quot;
+          },
+          &quot;result&quot;: {
+            &quot;accepted&quot;: true,
+            &quot;code&quot;: &quot;OK&quot;,
+            &quot;command_id&quot;: &quot;cmd-0001&quot;,
+            &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+            &quot;run_id&quot;: null,
+            &quot;sim_time_s&quot;: 0.0
+          }
+        },
+        {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;command_id&quot;: &quot;lost-start&quot;,
+          &quot;content&quot;: {
+            &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+            &quot;parameters&quot;: {
+              &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+              &quot;recipe_version&quot;: &quot;1&quot;
+            },
+            &quot;schema_version&quot;: &quot;1.0&quot;,
+            &quot;type&quot;: &quot;START&quot;
+          },
+          &quot;result&quot;: {
+            &quot;accepted&quot;: true,
+            &quot;code&quot;: &quot;OK&quot;,
+            &quot;command_id&quot;: &quot;lost-start&quot;,
+            &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+            &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+            &quot;sim_time_s&quot;: 0.0
+          }
+        }
+      ]
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/equipment/commands&quot;,
+    &quot;request&quot;: {
+      &quot;schema_version&quot;: &quot;1.0&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;command_id&quot;: &quot;lost-start&quot;,
+      &quot;type&quot;: &quot;START&quot;,
+      &quot;parameters&quot;: {
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;
+      }
+    },
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;accepted&quot;: true,
+      &quot;code&quot;: &quot;OK&quot;,
+      &quot;command_id&quot;: &quot;lost-start&quot;,
+      &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;sim_time_s&quot;: 0.0
+    }
+  },
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/sim/evidence&quot;,
+    &quot;request&quot;: null,
+    &quot;http_status&quot;: 200,
+    &quot;actual&quot;: {
+      &quot;state&quot;: {
+        &quot;run_counter&quot;: 1,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;sequence&quot;: 3,
+        &quot;signals&quot;: {
+          &quot;demo_process_level&quot;: 9.52,
+          &quot;step_progress_pct&quot;: 0
+        },
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;state&quot;: &quot;PREPARING&quot;,
+        &quot;telemetry_at&quot;: 1.0,
+        &quot;transition_at&quot;: 3.0,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+        &quot;current_run&quot;: {
+          &quot;demo_level&quot;: 70,
+          &quot;ended_at&quot;: null,
+          &quot;prepare_s&quot;: 3,
+          &quot;process_s&quot;: 10,
+          &quot;reason&quot;: null,
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;started_at&quot;: 0.0,
+          &quot;status&quot;: &quot;RUNNING&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+      },
+      &quot;gateway&quot;: {
+        &quot;disconnected&quot;: false,
+        &quot;duplicate_delivery&quot;: false,
+        &quot;lost_ack_once&quot;: false,
+        &quot;playing&quot;: false
+      },
+      &quot;runs&quot;: [
+        {
+          &quot;demo_level&quot;: 70,
+          &quot;ended_at&quot;: null,
+          &quot;prepare_s&quot;: 3,
+          &quot;process_s&quot;: 10,
+          &quot;reason&quot;: null,
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;started_at&quot;: 0.0,
+          &quot;status&quot;: &quot;RUNNING&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        }
+      ],
+      &quot;events&quot;: [
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;state&quot;: &quot;LOADED&quot;
+          },
+          &quot;run_id&quot;: null,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 1,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;WaferLoaded&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;,
+            &quot;state&quot;: &quot;PREPARING&quot;
+          },
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 2,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;RunStarted&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        },
+        {
+          &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;payload&quot;: {
+            &quot;state&quot;: &quot;PREPARING&quot;
+          },
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;sequence&quot;: 3,
+          &quot;sim_time_s&quot;: 0.0,
+          &quot;type&quot;: &quot;PreparationStarted&quot;,
+          &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+        }
+      ],
+      &quot;commands&quot;: [
+        {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;command_id&quot;: &quot;cmd-0001&quot;,
+          &quot;content&quot;: {
+            &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+            &quot;parameters&quot;: {
+              &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+            },
+            &quot;schema_version&quot;: &quot;1.0&quot;,
+            &quot;type&quot;: &quot;LOAD&quot;
+          },
+          &quot;result&quot;: {
+            &quot;accepted&quot;: true,
+            &quot;code&quot;: &quot;OK&quot;,
+            &quot;command_id&quot;: &quot;cmd-0001&quot;,
+            &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+            &quot;run_id&quot;: null,
+            &quot;sim_time_s&quot;: 0.0
+          }
+        },
+        {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;command_id&quot;: &quot;lost-start&quot;,
+          &quot;content&quot;: {
+            &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+            &quot;parameters&quot;: {
+              &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+              &quot;recipe_version&quot;: &quot;1&quot;
+            },
+            &quot;schema_version&quot;: &quot;1.0&quot;,
+            &quot;type&quot;: &quot;START&quot;
+          },
+          &quot;result&quot;: {
+            &quot;accepted&quot;: true,
+            &quot;code&quot;: &quot;OK&quot;,
+            &quot;command_id&quot;: &quot;lost-start&quot;,
+            &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+            &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+            &quot;sim_time_s&quot;: 0.0
+          }
+        }
+      ]
+    }
+  }
+]</pre></details>
+<details><summary>Bằng chứng: command ID, run ID, event sequence và trạng thái</summary><pre>{
+  &quot;before_retry&quot;: {
+    &quot;state&quot;: {
+      &quot;run_counter&quot;: 1,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;signals&quot;: {
+        &quot;demo_process_level&quot;: 9.52,
+        &quot;step_progress_pct&quot;: 0
+      },
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;state&quot;: &quot;PREPARING&quot;,
+      &quot;telemetry_at&quot;: 1.0,
+      &quot;transition_at&quot;: 3.0,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+      &quot;current_run&quot;: {
+        &quot;demo_level&quot;: 70,
+        &quot;ended_at&quot;: null,
+        &quot;prepare_s&quot;: 3,
+        &quot;process_s&quot;: 10,
+        &quot;reason&quot;: null,
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;started_at&quot;: 0.0,
+        &quot;status&quot;: &quot;RUNNING&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+    },
+    &quot;gateway&quot;: {
+      &quot;disconnected&quot;: false,
+      &quot;duplicate_delivery&quot;: false,
+      &quot;lost_ack_once&quot;: false,
+      &quot;playing&quot;: false
+    },
+    &quot;runs&quot;: [
+      {
+        &quot;demo_level&quot;: 70,
+        &quot;ended_at&quot;: null,
+        &quot;prepare_s&quot;: 3,
+        &quot;process_s&quot;: 10,
+        &quot;reason&quot;: null,
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;started_at&quot;: 0.0,
+        &quot;status&quot;: &quot;RUNNING&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      }
+    ],
+    &quot;events&quot;: [
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;state&quot;: &quot;LOADED&quot;
+        },
+        &quot;run_id&quot;: null,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 1,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;WaferLoaded&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;state&quot;: &quot;PREPARING&quot;
+        },
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 2,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;RunStarted&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;state&quot;: &quot;PREPARING&quot;
+        },
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 3,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;PreparationStarted&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      }
+    ],
+    &quot;commands&quot;: [
+      {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;command_id&quot;: &quot;cmd-0001&quot;,
+        &quot;content&quot;: {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;parameters&quot;: {
+            &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+          },
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;type&quot;: &quot;LOAD&quot;
+        },
+        &quot;result&quot;: {
+          &quot;accepted&quot;: true,
+          &quot;code&quot;: &quot;OK&quot;,
+          &quot;command_id&quot;: &quot;cmd-0001&quot;,
+          &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+          &quot;run_id&quot;: null,
+          &quot;sim_time_s&quot;: 0.0
+        }
+      },
+      {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;command_id&quot;: &quot;lost-start&quot;,
+        &quot;content&quot;: {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;parameters&quot;: {
+            &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;
+          },
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;type&quot;: &quot;START&quot;
+        },
+        &quot;result&quot;: {
+          &quot;accepted&quot;: true,
+          &quot;code&quot;: &quot;OK&quot;,
+          &quot;command_id&quot;: &quot;lost-start&quot;,
+          &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;sim_time_s&quot;: 0.0
+        }
+      }
+    ]
+  },
+  &quot;final&quot;: {
+    &quot;state&quot;: {
+      &quot;run_counter&quot;: 1,
+      &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;signals&quot;: {
+        &quot;demo_process_level&quot;: 9.52,
+        &quot;step_progress_pct&quot;: 0
+      },
+      &quot;sim_time_s&quot;: 0.0,
+      &quot;state&quot;: &quot;PREPARING&quot;,
+      &quot;telemetry_at&quot;: 1.0,
+      &quot;transition_at&quot;: 3.0,
+      &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;,
+      &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+      &quot;session_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2&quot;,
+      &quot;current_run&quot;: {
+        &quot;demo_level&quot;: 70,
+        &quot;ended_at&quot;: null,
+        &quot;prepare_s&quot;: 3,
+        &quot;process_s&quot;: 10,
+        &quot;reason&quot;: null,
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;started_at&quot;: 0.0,
+        &quot;status&quot;: &quot;RUNNING&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      &quot;simulation_notice&quot;: &quot;MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH&quot;
+    },
+    &quot;gateway&quot;: {
+      &quot;disconnected&quot;: false,
+      &quot;duplicate_delivery&quot;: false,
+      &quot;lost_ack_once&quot;: false,
+      &quot;playing&quot;: false
+    },
+    &quot;runs&quot;: [
+      {
+        &quot;demo_level&quot;: 70,
+        &quot;ended_at&quot;: null,
+        &quot;prepare_s&quot;: 3,
+        &quot;process_s&quot;: 10,
+        &quot;reason&quot;: null,
+        &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+        &quot;recipe_version&quot;: &quot;1&quot;,
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;started_at&quot;: 0.0,
+        &quot;status&quot;: &quot;RUNNING&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      }
+    ],
+    &quot;events&quot;: [
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:1&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;state&quot;: &quot;LOADED&quot;
+        },
+        &quot;run_id&quot;: null,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 1,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;WaferLoaded&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:2&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+          &quot;recipe_version&quot;: &quot;1&quot;,
+          &quot;state&quot;: &quot;PREPARING&quot;
+        },
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 2,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;RunStarted&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      },
+      {
+        &quot;event_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:3&quot;,
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;payload&quot;: {
+          &quot;state&quot;: &quot;PREPARING&quot;
+        },
+        &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+        &quot;schema_version&quot;: &quot;1.0&quot;,
+        &quot;sequence&quot;: 3,
+        &quot;sim_time_s&quot;: 0.0,
+        &quot;type&quot;: &quot;PreparationStarted&quot;,
+        &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+      }
+    ],
+    &quot;commands&quot;: [
+      {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;command_id&quot;: &quot;cmd-0001&quot;,
+        &quot;content&quot;: {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;parameters&quot;: {
+            &quot;wafer_id&quot;: &quot;W-DEMO-001&quot;
+          },
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;type&quot;: &quot;LOAD&quot;
+        },
+        &quot;result&quot;: {
+          &quot;accepted&quot;: true,
+          &quot;code&quot;: &quot;OK&quot;,
+          &quot;command_id&quot;: &quot;cmd-0001&quot;,
+          &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+          &quot;run_id&quot;: null,
+          &quot;sim_time_s&quot;: 0.0
+        }
+      },
+      {
+        &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+        &quot;command_id&quot;: &quot;lost-start&quot;,
+        &quot;content&quot;: {
+          &quot;machine_id&quot;: &quot;SIM-ETCH-01&quot;,
+          &quot;parameters&quot;: {
+            &quot;recipe_id&quot;: &quot;DEMO_A&quot;,
+            &quot;recipe_version&quot;: &quot;1&quot;
+          },
+          &quot;schema_version&quot;: &quot;1.0&quot;,
+          &quot;type&quot;: &quot;START&quot;
+        },
+        &quot;result&quot;: {
+          &quot;accepted&quot;: true,
+          &quot;code&quot;: &quot;OK&quot;,
+          &quot;command_id&quot;: &quot;lost-start&quot;,
+          &quot;message&quot;: &quot;Đã thực hiện trong simulator.&quot;,
+          &quot;run_id&quot;: &quot;46ebc03b8a2e4a49bcce2d44db4704c2:run-0001&quot;,
+          &quot;sim_time_s&quot;: 0.0
+        }
+      }
+    ]
+  }
+}</pre></details>
+<p><a href="db690faac6e1430da1f2c07868149f4f">Bản JSON qua API</a> · <a href="db690faac6e1430da1f2c07868149f4f.json">Bản JSON khi mở file cục bộ</a></p></html>

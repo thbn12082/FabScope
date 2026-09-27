@@ -1,0 +1,17 @@
+{
+  "config_version": "demo-1",
+  "simulation_notice": "MÔ PHỎNG · CẤU HÌNH GIẢ ĐỊNH",
+  "machine_id": "SIM-ETCH-01",
+  "seed": 42,
+  "telemetry_interval_s": 1,
+  "recipes": [
+    {"recipe_id": "DEMO_A", "recipe_version": "1", "prepare_s": 3, "process_s": 10, "demo_level": 70},
+    {"recipe_id": "DEMO_B", "recipe_version": "1", "prepare_s": 4, "process_s": 16, "demo_level": 45}
+  ],
+  "gateway_policy": {"disconnect_stops_process": false, "retain_all_events": true},
+  "assumptions": [
+    "Một buồng, một wafer; thời lượng và tín hiệu chỉ phục vụ thử nghiệm phần mềm.",
+    "Tắt dịch vụ thì đồng hồ dừng; mất kết nối gateway không dừng đồng hồ.",
+    "Không mô phỏng vật lý khắc, không suy ra chất lượng wafer hoặc hành vi máy thật."
+  ]
+}
